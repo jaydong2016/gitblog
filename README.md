@@ -1,4 +1,6 @@
-#### [Notion 博客](https://nb.adone.eu.org/)
+
+##### [Github issues 博客](https://boke.adone.eu.org/)
+##### [Notion 博客](https://nb.adone.eu.org/)
 ### 喜欢您来！
 [![](https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png)](https://nb.adone.eu.org/)
 ## 最近更新
