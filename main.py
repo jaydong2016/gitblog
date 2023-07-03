@@ -10,7 +10,7 @@ from lxml.etree import CDATA
 
 MD_HEAD = """
 #### [Github issues 博客](https://boke.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/)
-#### 喜欢您来！
+### 喜欢您就常来！
 [![](https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png)](https://nb.adone.eu.org/)
 """
 
@@ -119,7 +119,7 @@ def add_md_recent(repo, md, me, limit=5):
     with open(md, "a+", encoding="utf-8") as md:
         # one the issue that only one issue and delete (pyGitHub raise an exception)
         try:
-            md.write("# 最近的更新\n")
+            md.write("# 最近更新\n")
             for issue in repo.get_issues():
                 if is_me(issue, me):
                     add_issue_info(issue, md)
