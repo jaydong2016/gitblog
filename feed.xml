@@ -1,5 +1,142 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/jaydong2016/gitblog</id><title>RSS feed of jaydong2016's gitblog</title><updated>2023-07-03T08:50:51.125805+00:00</updated><author><name>jaydong2016</name><email>huangwudong2011@gmail.com</email></author><link href="https://github.com/jaydong2016/gitblog"/><link href="https://raw.githubusercontent.com/jaydong2016/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><entry><id>https://github.com/jaydong2016/gitblog/issues/15</id><title>&gt; 寻找蝈师</title><updated>2023-07-03T08:50:51.413342+00:00</updated><content type="html"><![CDATA[<blockquote>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/jaydong2016/gitblog</id><title>RSS feed of jaydong2016's gitblog</title><updated>2023-07-03T08:52:28.488826+00:00</updated><author><name>jaydong2016</name><email>huangwudong2011@gmail.com</email></author><link href="https://github.com/jaydong2016/gitblog"/><link href="https://raw.githubusercontent.com/jaydong2016/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><entry><id>https://github.com/jaydong2016/gitblog/issues/16</id><title>Nginx 可视化管理界面</title><updated>2023-07-03T08:52:28.691026+00:00</updated><content type="html"><![CDATA[<blockquote>
+<p>今天给大家介绍一款 Nginx 可视化管理界面，非常好用，小白也能立马上手。</p>
+</blockquote>
+<p><img src="http://pic9.adone.eu.org/modb_20230329_01597a5a-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
+<p>今天给大家介绍一款 Nginx 可视化管理界面，非常好用，小白也能立马上手。</p>
+<p>nginx-proxy-manager 是一个反向代理管理系统，它基于 NGINX，具有漂亮干净的 Web UI。还可以获得受信任的 SSL 证书，并通过单独的配置、自定义和入侵保护来管理多个代理。它是开源的，斩获 11.8K 的 Star 数。</p>
+<h2>特征</h2>
+<ul>
+<li>
+<p>基于 Tabler(<a href="https://tabler.github.io/">https://tabler.github.io/</a>) 的美观安全的管理界面</p>
+</li>
+<li>
+<p>无需了解 Nginx 即可轻松创建转发域、重定向、流和 404 主机</p>
+</li>
+<li>
+<p>使用 Let's Encrypt 的免费 SSL 或提供您自己的自定义 SSL 证书</p>
+</li>
+<li>
+<p>主机的访问列表和基本 HTTP 身份验证</p>
+</li>
+<li>
+<p>高级 Nginx 配置可供超级用户使用</p>
+</li>
+<li>
+<p>用户管理、权限和审核日志</p>
+</li>
+</ul>
+<h2>安装</h2>
+<h3>1、安装 Docker 和 Docker-Compose</h3>
+<h3>2、创建一个 docker-compose.yml 文件</h3>
+<pre><code>version: &#x27;3&#x27;
+services:
+  app:
+    image: &#x27;jc21/nginx-proxy-manager:latest&#x27;
+    restart: unless-stopped
+    ports:
+      - &#x27;80:80&#x27;
+      - &#x27;81:81&#x27;
+      - &#x27;443:443&#x27;
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+
+
+</code></pre>
+<h3>3、运行</h3>
+<pre><code>docker-compose up -d
+
+#如果使用的是 docker-compose-plugin
+docker compose up -d
+
+</code></pre>
+<h3>4、访问网页</h3>
+<p>运行成功后，访问 <a href="http://127.0.0.1:81/">http://127.0.0.1:81/</a> 就能看到界面啦</p>
+<p><img src="http://pic9.adone.eu.org/modb_20230329_01674f18-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
+<h3>5、登录</h3>
+<p>网站默认账号和密码为</p>
+<pre><code>账号：admin@example.com
+密码：changeme
+
+
+</code></pre>
+<p>登录成功后第一次要求修改密码，按照步骤修改即可！</p>
+<h3>6、登录成功主界面</h3>
+<p><img src="http://pic9.adone.eu.org/modb_20230329_01835f46-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
+<h2>实战：设置后台管理界面的反向代理</h2>
+<p>这里，我们就用 <a href="http://a.test.com/">http://a.test.com/</a> 来绑定我们的端口号为 81 的后台管理界面，实现浏览器输入 <a href="http://a.test.com/">http://a.test.com/</a> 即可访问后台管理界面，并且设置 HTTPS。</p>
+<h3>1、前提</h3>
+<ul>
+<li>
+<p>安装好 Nginx Proxy Manager</p>
+</li>
+<li>
+<p>拥有一个域名</p>
+</li>
+<li>
+<p>将 <a href="http://a.test.com/">http://a.test.com/</a> 解析到安装 Nginx Proxy Manager 的服务器 ip 地址上</p>
+</li>
+</ul>
+<h3>2、反向代理操作</h3>
+<p>先用<code>ip:81</code><br />
+访问后台管理界面，然后输入账号密码进入后台。</p>
+<p>点击绿色图标的选项</p>
+<p><img src="http://pic9.adone.eu.org/modb_20230329_0176ed88-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
+<p>点击右边<code>Add Proxy Host</code><br />
+，在弹出的界面<code>Details</code><br />
+选项中填写相应的字段。</p>
+<p><img src="http://pic9.adone.eu.org/modb_20230329_01918620-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
+<ul>
+<li>
+<p><strong>Domain Names</strong>: 填写要反向代理的域名，这里就是 <a href="http://a.test.com/">http://a.test.com/</a></p>
+</li>
+<li>
+<p><strong>Forward Hostname / IP</strong>: 填写的 ip 值见下文解释</p>
+</li>
+<li>
+<p><strong>Forward Port</strong>: 反向代理的端口，这里就是 81</p>
+</li>
+<li>
+<p><strong>Block Common Exploits</strong>: 开启后阻止一些常见漏洞</p>
+</li>
+<li>
+<p>其余两个暂不知作用</p>
+</li>
+</ul>
+<p><strong>Forward Hostname / IP 填写说明</strong></p>
+<p>如果搭建的服务和 nginx proxy manager 服务所在不是一个服务器，则填写能访问对应服务的 IP。如果都在同一台服务器上，则填写在服务器中输入<code>ip addr show docker0</code><br />
+命令获取得到的 ip。</p>
+<p><img src="http://pic9.adone.eu.org/modb_20230329_01a1ce36-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
+<p>这里不填<code>127.0.0.1</code><br />
+的原因是使用的是 docker 容器搭建 web 应用，docker 容器和宿主机即服务器不在同一个网络下，所以<code>127.0.0.1</code><br />
+并不能访问到宿主机，而<code>ip addr show docker0</code><br />
+获得的 ip 地址就是宿主机地址。</p>
+<p><img src="http://pic9.adone.eu.org/modb_20230329_01b10bf8-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
+<p>接下来即可用<code>a.test.com</code><br />
+访问后台管理界面，此时还只是 http 协议，没有 https。不过此时就可以把之前的 81 端口关闭了，输入<code>a.test.com</code><br />
+访问的是服务器<code>80</code><br />
+端口，然后在转发给内部的 81 端口。</p>
+<h3>3、申请 ssl 证书</h3>
+<p>申请一个<code>a.test.com</code><br />
+证书，这样就可以提供 https 访问了。</p>
+<p>在 Nginx Proxy Manager 管理后台，选择<code>Access Lists</code><br />
+-&gt;<code>Add SSL Certificate</code><br />
+-&gt;<code>Let&#x27;s Encrypt</code><br />
+选项。</p>
+<p><img src="http://pic9.adone.eu.org/modb_20230329_01bfc6fc-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
+<p>按照下图方式填写，点击 Save 就可以了</p>
+<p><img src="http://pic9.adone.eu.org/modb_20230329_01ccf318-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
+<h3>4、设置 HTTPS</h3>
+<p>进入反向代理设置界面，编辑上文创建的反代服务，选择 SSL 选项，下拉菜单中选择我们申请的证书，然后可以勾选<code>Force SSL</code><br />
+即强制 HTTPS。</p>
+<p><img src="http://pic9.adone.eu.org/modb_20230329_01dc94a8-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
+<h2>总结</h2>
+<p>以上就是本教程的全部内容，更多的使用教程，大家可以访问官方文档。</p>
+<blockquote>
+<p>官方文档：<a href="https://nginxproxymanager.com/guide/">https://nginxproxymanager.com/guide/</a></p>
+</blockquote>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/16" rel="alternate"/><category term="转载摘录"/><published>2023-07-03T08:52:04+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/15</id><title>&gt; 寻找蝈师</title><updated>2023-07-03T08:52:28.814699+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>寻找蝈师</p>
 </blockquote>
 <p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff0a996c5-0978-4c7d-97a3-35f86582ae19%2FIMG_20230501_113331.jpg?table=block&amp;id=f4016453-4cf9-4db7-bd01-c66efc2c27e4" alt="" /><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb0b717cc-741a-4228-b238-64f658006398%2FIMG_20230501_123857.jpg?table=block&amp;id=ec482973-b950-48de-8bcc-bb173cdf3eac" alt="" /><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F2cb1960d-3a82-4b1c-8ac2-3262a9cf2913%2FMVIMG_20230620_191903.jpg?table=block&amp;id=9d2cbeb0-ba72-4ac5-9cbc-16785666a63c" alt="" />  💡蝈师在不在</p>
@@ -9,7 +146,7 @@
 <li><strong>链接:</strong><a href="https://nb.adone.eu.org/article/example-3">https://nb.adone.eu.org/article/example-3</a></li>
 <li><strong>声明:</strong> 本文采用 CC BY-NC-SA 4.0 许可协议，转载请注明出处。</li>
 </ul>
-]]></content><link href="https://github.com/jaydong2016/gitblog/issues/15" rel="alternate"/><category term="心情随想"/><published>2023-07-03T08:41:14+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/14</id><title>【转载】申请CloudFlare免费15年的SSL证书</title><updated>2023-07-03T08:50:51.535478+00:00</updated><content type="html"><![CDATA[<blockquote>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/15" rel="alternate"/><category term="心情随想"/><published>2023-07-03T08:41:14+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/14</id><title>【转载】申请CloudFlare免费15年的SSL证书</title><updated>2023-07-03T08:52:28.926528+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>原文地址 vpsyx.com</p>
 </blockquote>
 <blockquote>
@@ -48,7 +185,7 @@
 <p>我们个人申请的 Let's encrypt 是 R3 级别的，cloudflare 帮我们申请的是 E1 级别的，有什么区别也不是很清楚，只知道是不一样的</p>
 <p>区别如官方图示</p>
 <p><img src="https://s2.loli.net/2023/06/30/mT7CdHbS5pElxar.png" alt="https://s2.loli.net/2023/06/30/mT7CdHbS5pElxar.png" /></p>
-]]></content><link href="https://github.com/jaydong2016/gitblog/issues/14" rel="alternate"/><category term="转载摘录"/><published>2023-07-03T08:28:42+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/13</id><title>【教程】1.1.1.1 Warp+ 24PB 几乎无限流量科学上网</title><updated>2023-07-03T08:50:51.667045+00:00</updated><content type="html"><![CDATA[<blockquote>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/14" rel="alternate"/><category term="转载摘录"/><published>2023-07-03T08:28:42+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/13</id><title>【教程】1.1.1.1 Warp+ 24PB 几乎无限流量科学上网</title><updated>2023-07-03T08:52:29.034816+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>1.1.1.1 Warp+ 24PB 无限流量密钥 一个自动获取 1.1.1.1 warp+ 24PB 无限流量…</p>
 </blockquote>
 <h3>1.1.1.1 Warp+ 24PB 无限流量密钥</h3>
@@ -67,7 +204,7 @@
 <h3>1.1.1.1 Warp+ 24PB 无限流量密钥获取地址</h3>
 <p>Wrap+ Bot：<a href="https://t.me/generatewarpplusbot">https://t.me/generatewarpplusbot</a></p>
 <p>原文链接：<a href="https://www.ahhhhfs.com/40632/" title="自动获取1.1.1.1 Warp+ 24PB 无限流量密钥 出海无忧">https://www.ahhhhfs.com/40632/</a></p>
-]]></content><link href="https://github.com/jaydong2016/gitblog/issues/13" rel="alternate"/><category term="置顶文章"/><published>2023-07-03T08:25:43+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/12</id><title>【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网</title><updated>2023-07-03T08:50:51.791704+00:00</updated><content type="html"><![CDATA[<blockquote>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/13" rel="alternate"/><category term="置顶文章"/><published>2023-07-03T08:25:43+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/12</id><title>【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网</title><updated>2023-07-03T08:52:29.153714+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>这是一个名为 edgetunnel 的 github 项目，可以通过 Cloudflare Workers 部署一个 vless协议的 V2ray代理。</p>
 </blockquote>
 <blockquote>
