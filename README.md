@@ -1,6 +1,6 @@
-## Gitblog
-My personal blog using issues and GitHub Actions (随意转载，无需署名)
-[RSS Feed](https://raw.githubusercontent.com/jaydong2016/gitblog/master/feed.xml)
+# 喜欢您来！
+### [Github issues 博客](https://boke.adone.eu.org/)
+### [Notion 博客](https://nb.adone.eu.org/)
 ## 友情链接
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
