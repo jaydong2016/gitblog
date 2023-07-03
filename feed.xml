@@ -1,5 +1,44 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/jaydong2016/gitblog</id><title>RSS feed of jaydong2016's gitblog</title><updated>2023-07-03T08:26:17.357356+00:00</updated><author><name>jaydong2016</name><email>huangwudong2011@gmail.com</email></author><link href="https://github.com/jaydong2016/gitblog"/><link href="https://raw.githubusercontent.com/jaydong2016/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><entry><id>https://github.com/jaydong2016/gitblog/issues/13</id><title>【教程】1.1.1.1 Warp+ 24PB 几乎无限流量科学上网</title><updated>2023-07-03T08:26:17.552137+00:00</updated><content type="html"><![CDATA[<blockquote>
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/jaydong2016/gitblog</id><title>RSS feed of jaydong2016's gitblog</title><updated>2023-07-03T08:29:11.969849+00:00</updated><author><name>jaydong2016</name><email>huangwudong2011@gmail.com</email></author><link href="https://github.com/jaydong2016/gitblog"/><link href="https://raw.githubusercontent.com/jaydong2016/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><entry><id>https://github.com/jaydong2016/gitblog/issues/14</id><title>【转载】申请CloudFlare免费15年的SSL证书</title><updated>2023-07-03T08:29:12.253905+00:00</updated><content type="html"><![CDATA[<blockquote>
+<p>原文地址 vpsyx.com</p>
+</blockquote>
+<blockquote>
+<p>前言 现在大家用的最多的免费证书，可能就是 Let,s encrytp 了吧，但是它有一个缺点，就是有效期太短了，最多只有 90 天，每次都要想着证书是不是快要到期了，是不 不是该查看一下了，这样就有个牵挂了，......</p>
+</blockquote>
+<h2><strong>前言</strong></h2>
+<p>现在大家用的最多的免费证书，可能就是 Let,s encrytp 了吧，但是它有一个缺点，就是有效期太短了，最多只有 90 天，每次都要想着证书是不是快要到期了，是不</p>
+<p>不是该查看一下了，这样就有个牵挂了，要做到一个短期没牵挂的方法，那就是来个长期有效的证书</p>
+<p>那么就有了这个选择——15 年有效期的免费证书</p>
+<p><img src="https://s2.loli.net/2023/06/30/pGN6VlH5jPsDXWc.png" alt="https://s2.loli.net/2023/06/30/pGN6VlH5jPsDXWc.png" /></p>
+<p>这个[<a href="https://vpsyx.com/domain/">域名</a>](https://vpsyx.com/domain/)我已经申请到了，到期日期——2037 年 7 月 23 日</p>
+<p>注意</p>
+<h3><strong>缺点一</strong></h3>
+<p>这个证书也有一个致命缺点，就是只能配合它家的 CDN，小云朵使用，即要打开代理状态</p>
+<p><img src="https://s2.loli.net/2023/06/30/lzNSRO4jKanLgwf.png" alt="https://s2.loli.net/2023/06/30/lzNSRO4jKanLgwf.png" /></p>
+<p>不然就是还是否会提示 “Win 没有足够信息，不能验证该证书”</p>
+<p><img src="https://s2.loli.net/2023/06/30/l8nmM2PLDhHOI6A.png" alt="https://s2.loli.net/2023/06/30/l8nmM2PLDhHOI6A.png" /></p>
+<p>这就是关了小云朵后的提示</p>
+<h3><strong>缺点二</strong></h3>
+<p>即使申请的证书是 15 年，也是内部有效时间，对外，即客户层面看到的证书，还是 cloudflare 帮我们自动申请的，Let,s encrypt 的 E1 证书</p>
+<p><img src="https://s2.loli.net/2023/06/30/mrhFRg3ekHNIa14.png" alt="https://s2.loli.net/2023/06/30/mrhFRg3ekHNIa14.png" /></p>
+<p>不过这个不用我们自己再申请了，还是会一劳永逸的方法</p>
+<p>如果能接受上面的两缺点，那我们才开始操作吧，如果接受不了，就放弃吧</p>
+<h2><strong>申请过程</strong></h2>
+<p>第一步：登录 cloudflare——SSL/TLS—— 概述——完全（严格）</p>
+<p><img src="https://s2.loli.net/2023/06/30/7J19Z8jgpnqbVUS.png" alt="https://s2.loli.net/2023/06/30/7J19Z8jgpnqbVUS.png" /></p>
+<p>第二步：SSL/TLS——源服务器——创建证书</p>
+<p><img src="https://s2.loli.net/2023/06/30/k2XwxmPhEIWU9Bz.png" alt="https://s2.loli.net/2023/06/30/k2XwxmPhEIWU9Bz.png" /></p>
+<p>第三步：选择使用 cloudflare 生成私钥和 CSR，类型默认 RAS（2048）就可以了，创建</p>
+<p><img src="https://s2.loli.net/2023/06/30/dsqeDxtA5FOU2y7.png" alt="https://s2.loli.net/2023/06/30/dsqeDxtA5FOU2y7.png" /></p>
+<p>第四步：复制 pem 和 key，自行保存，这里的 key 只出现一次，<strong>切记复制保存，切记复制保存，切记复制保存（重要）</strong></p>
+<p><img src="https://s2.loli.net/2023/06/30/oiP1uSJzLC8a4Xs.png" alt="https://s2.loli.net/2023/06/30/oiP1uSJzLC8a4Xs.png" /></p>
+<p>第五步：解析域名并开启代理小云朵，大功告成</p>
+<h2><strong>总结</strong></h2>
+<p>优点是 15 年，不需要自己为证书牵挂，缺点就是要依赖小云朵的 CDN，要保持一一对应关系</p>
+<p>我们个人申请的 Let's encrypt 是 R3 级别的，cloudflare 帮我们申请的是 E1 级别的，有什么区别也不是很清楚，只知道是不一样的</p>
+<p>区别如官方图示</p>
+<p><img src="https://s2.loli.net/2023/06/30/mT7CdHbS5pElxar.png" alt="https://s2.loli.net/2023/06/30/mT7CdHbS5pElxar.png" /></p>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/14" rel="alternate"/><category term="转载摘录"/><published>2023-07-03T08:28:42+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/13</id><title>【教程】1.1.1.1 Warp+ 24PB 几乎无限流量科学上网</title><updated>2023-07-03T08:29:12.399651+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>1.1.1.1 Warp+ 24PB 无限流量密钥 一个自动获取 1.1.1.1 warp+ 24PB 无限流量…</p>
 </blockquote>
 <h3>1.1.1.1 Warp+ 24PB 无限流量密钥</h3>
@@ -18,7 +57,7 @@
 <h3>1.1.1.1 Warp+ 24PB 无限流量密钥获取地址</h3>
 <p>Wrap+ Bot：<a href="https://t.me/generatewarpplusbot">https://t.me/generatewarpplusbot</a></p>
 <p>原文链接：<a href="https://www.ahhhhfs.com/40632/" title="自动获取1.1.1.1 Warp+ 24PB 无限流量密钥 出海无忧">https://www.ahhhhfs.com/40632/</a></p>
-]]></content><link href="https://github.com/jaydong2016/gitblog/issues/13" rel="alternate"/><category term="置顶文章"/><published>2023-07-03T08:25:43+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/12</id><title>【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网</title><updated>2023-07-03T08:26:17.666637+00:00</updated><content type="html"><![CDATA[<blockquote>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/13" rel="alternate"/><category term="置顶文章"/><published>2023-07-03T08:25:43+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/12</id><title>【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网</title><updated>2023-07-03T08:29:12.533861+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>这是一个名为 edgetunnel 的 github 项目，可以通过 Cloudflare Workers 部署一个 vless协议的 V2ray代理。</p>
 </blockquote>
 <blockquote>
