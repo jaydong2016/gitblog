@@ -11,6 +11,7 @@ from lxml.etree import CDATA
 MD_HEAD = """### [Github issues 博客](https://boke.adone.eu.org/)
 ### [Notion 博客](https://nb.adone.eu.org/)
 # 喜欢您来！
+![android-chrome-512x512.png](https://s2.loli.net/2023/07/03/PXazvJ5IqtkFyUb.png)
 """
 
 BACKUP_DIR = "BACKUP"
