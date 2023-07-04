@@ -1,11 +1,156 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/jaydong2016/gitblog</id><title>RSS feed of jaydong2016's gitblog</title><updated>2023-07-03T15:52:00.924762+00:00</updated><author><name>jaydong2016</name><email>huangwudong2011@gmail.com</email></author><link href="https://github.com/jaydong2016/gitblog"/><link href="https://raw.githubusercontent.com/jaydong2016/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><entry><id>https://github.com/jaydong2016/gitblog/issues/17</id><title>何不食肉糜</title><updated>2023-07-03T15:52:01.288412+00:00</updated><content type="html"><![CDATA[<p><img src="https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png" alt="android-chrome-512x512.png" />
+<feed xmlns="http://www.w3.org/2005/Atom"><id>https://github.com/jaydong2016/gitblog</id><title>RSS feed of jaydong2016's gitblog</title><updated>2023-07-04T01:37:36.610909+00:00</updated><author><name>jaydong2016</name><email>huangwudong2011@gmail.com</email></author><link href="https://github.com/jaydong2016/gitblog"/><link href="https://raw.githubusercontent.com/jaydong2016/gitblog/master/feed.xml" rel="self"/><generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator><entry><id>https://github.com/jaydong2016/gitblog/issues/19</id><title>【教程】拯救你的拉垮VPS，一键脚本搭建 Tuic V5 </title><updated>2023-07-04T01:37:36.807503+00:00</updated><content type="html"><![CDATA[<blockquote>
+<p>我的 AWS 光帆使用其他协议，速度基本没法看，直到我安装了tuic v5
+各位有垃圾VPS 的确实可以一试</p>
+</blockquote>
+<p>以下转载自 <a href="https://www.v2ray-agent.com/archives/1687167522196">最新Tuic V5性能提升及使用方法 - mack-a (v2ray-agent.com)</a></p>
+<p>Tuic 最近发布了 <strong>V5</strong>，性能提升较大，经过了解和使用这篇文章应运而生。</p>
+<p>QUIC 协议汲取了大量人们给 TCP 糊墙的经验教训，把连接结构优化到（目前来看）极致。但是现在市面上的代理工具还没有能完全利用 QUIC 特性的存在 - <strong>官方介绍</strong>。</p>
+<p>如果本地使用 <strong>hysteria</strong> 经常发生 <strong>QoS</strong>，可以尝试一下此工具。相对于 hysteria 更加温和，在<strong>不影响良好使用情况下尽量发挥最大的性能</strong>。据群友测试，<strong>可以提升数倍</strong>，而且没有发现 QoS 问题，如果是<strong>线路以及性能优良的 VPS 则提升不明显</strong>，如果有 <a href="https://www.v2ray-agent.com/archives/racknerdtao-can-zheng-li-nian-fu-10mei-yuan"><strong>RackNerd</strong></a> 的可以尝试一下使用一下。</p>
+<ul>
+<li>
+<p>1-RTT TCP 中继</p>
+</li>
+<li>
+<p>0-RTT UDP 中继，且 NAT 类型为 FullCone</p>
+</li>
+<li>
+<p>在用户空间的拥塞控制，也就是说可以在任何系统平台实现双向的 BBR</p>
+</li>
+<li>
+<p>两种 UDP 中继模式: native （原生 UDP 特性，数据仍被 TLS 加密）和 quic (100% 送达率，每个包单独单独作为一个 QUIC “流”，一个包的确认重传不会阻塞其它包)</p>
+</li>
+<li>
+<p>完全多路复用，服务器和客户端之间始终只需要一条 QUIC 连接，所有任务作为这个连接中的 “流” 进行传输（一个流的暂时阻塞不会影响其它流），所以除连接第一个中继任务外的其它任务都不需要经过 QUIC 握手和 TUIC 的鉴权</p>
+</li>
+<li>
+<p>网络切换时的会话平滑转移，例如在从 Wi-Fi 切换到移动数据时连接不会像 TCP 一样直接断开</p>
+</li>
+<li>
+<p>0-RTT 、与中继任务并行的鉴权</p>
+</li>
+<li>
+<p>支持 QUIC 的 0-RTT 握手（开启之后能达到 真・ 1 -RTT TCP 和 0-RTT UDP ，但是就算不开启，多路复用的特性也能保证在绝大多数情况下 1-RTT 和 0-RTT ）</p>
+</li>
+</ul>
+<ol>
+<li>下载脚本</li>
+</ol>
+<hr />
+<pre><code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh
+
+</code></pre>
+<ol start="2">
+<li>安装或者个性化安装</li>
+</ol>
+<hr />
+<ul>
+<li>只需要保证安装 VLESS_TLS_Vision 即可（需要依赖这个）</li>
+</ul>
+<pre><code>vasma-&gt;1/2
+
+</code></pre>
+<ol start="3">
+<li>安装 Tuic</li>
+</ol>
+<hr />
+<pre><code>vasma-&gt;7
+
+</code></pre>
+<p>目前支持 Tuic V5 客户端较少，推荐以下两个</p>
+<h2>1.windows</h2>
+<h3>1.<a href="https://github.com/2dust/v2rayN/releases">v2rayN（需要 Pre-release 的最新版）</a></h3>
+<ul>
+<li>
+<ol>
+<li>下载最新的完成后其中默认带的 Tuic 内核<strong>不支持 V5</strong>，所以这里还需要手动下载 <a href="https://github.com/EAimTY/tuic/releases/tag/tuic-client-1.0.0">Tuic-client 1.0.0</a> 进行替换（不要下载成 server 端了） , 下载文件名称一般为 <strong>tuic-client-1.0.0-x86_64-pc-windows-msvc.exe。</strong></li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>下载完成后改名 <strong>tuic-client.exe</strong> 并替换原来的 <strong>tuic-client.exe</strong>，文件路径为 <strong>v2rayN 程序目录 / bin/tuic/。</strong></li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>将脚本提供的 json 配置，复制并保存到本地，名字为 config.json。</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>客户端配置：v2rayN-&gt; 服务器 -&gt; 自定义配置 -&gt; 浏览 -&gt; 导入刚才的 json 文件。Core 类型选择 tuic，Socks 端口输入 7798，点击确定进行保存。由于无法进行测速，只能设置为活跃节点后打开浏览器测试可用性。</li>
+</ol>
+<p><img src="https://www.v2ray-agent.com/upload/wk/v2rayN_tuic_01.png" alt="" /></p>
+<p><img src="https://www.v2ray-agent.com/upload/wk/v2rayN_tuic_02.png" alt="" /></p>
+</li>
+</ul>
+<h3>2.<a href="https://github.com/Fndroid/clash_for_windows_pkg/releases/tag/0.20.23">Clash for Windows</a>(<a href="https://github.com/MetaCubeX/Clash.Meta/releases/tag/Prerelease-Alpha">Clash.Meta</a>)</h3>
+<ul>
+<li>
+<ol>
+<li>下载上方链接中的 Clash For Windows GUI。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>下载<a href="https://github.com/MetaCubeX/Clash.Meta/releases/tag/Prerelease-Alpha"><strong>最新的 Alpha</strong></a> 的 Clash.Meta，名称一般为 <strong>clash.meta-windows-amd64-alpha-xxx.zip</strong>。如果是 ARM 则是 <strong>clash.meta-windows-arm64-alpha-xxx.zip</strong> 下载完成后，解压并修改文件名字为【<strong>clash-win64.exe</strong>】</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>将上面下载成功的内核替换到下面的路径。</li>
+</ol>
+<pre><code># windows 替换文件 clash-win64.exe
+# AMD
+cfw程序目录-&gt;resources/static/files/win/x64/
+# ARM
+cfw程序目录-&gt;resources/static/files/win/arm64/
+
+</code></pre>
+</li>
+<li>
+<p>4.<strong>vasma-&gt;6. 账号管理 -&gt;2. 查看订阅</strong> 拉取即可</p>
+</li>
+</ul>
+<h3>3.<a href="https://github.com/zzzgydi/clash-verge/releases">Clash Verge</a></h3>
+<ul>
+<li>
+<ol>
+<li>下载上方连接的 GUI，windows 一般为 <strong>Clash.Verge_1.3.3_x64_zh-CN.msi</strong>，Mac 则是 <strong>Clash.Verge_1.3.3_x64.dmg</strong>，Mac M1/M2 则是 <strong>Clash.Verge_1.3.3_aarch64.dmg</strong></li>
+</ol>
+</li>
+<li>
+<p>2.<strong>vasma-&gt;6. 账号管理 -&gt;2. 查看订阅</strong> 拉取即可</p>
+</li>
+</ul>
+<p><img src="https://www.v2ray-agent.com/upload/wk/clashVerge_%E8%AE%A2%E9%98%85.png" alt="" /></p>
+<ul>
+<li>
+<ol start="3">
+<li>修改设置，第一步进入设置，打开局域网连接、Tun 模式、系统代理，第二步修改 Clash 内核为 Clash Meta，第三步重启应用</li>
+</ol>
+</li>
+</ul>
+<h2>2.MacOS</h2>
+<h3>1.<a href="https://github.com/Fndroid/clash_for_windows_pkg/releases/tag/0.20.23">Clash for Windows</a>(<a href="https://github.com/MetaCubeX/Clash.Meta/releases/tag/Prerelease-Alpha">Clash.Meta</a>)</h3>
+<p>步骤参考上面的 windows 配置方法，与 windows 的区别是核心修改的名称不一样，Mac 的是 <strong>clash-darwin</strong>。一般下载的名称为 <strong>clash.meta-darwin-amd64-alpha-xx.gz</strong>，ARM 则是 **clash.meta-darwin-arm64-alpha-xx.gz，**替换路径如下</p>
+<pre><code># macos intel
+/Applications/Clash\ for\ Windows.app/Contents/Resources/static/files/darwin/x64/
+# macosARM（M1、M2）
+/Applications/Clash\ for\ Windows.app/Contents/Resources/static/files/darwin/arm64/
+
+</code></pre>
+<h2>2.Clash Verge</h2>
+<ul>
+<li>参考上方设置</li>
+</ul>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/19" rel="alternate"/><category term="转载摘录"/><published>2023-07-04T01:37:09+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/17</id><title>何不食肉糜</title><updated>2023-07-04T01:37:36.922141+00:00</updated><content type="html"><![CDATA[<p><img src="https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png" alt="android-chrome-512x512.png" />
 在一个遥远的王国里，有一位名叫司马衷的国王。他是一个仁慈而又无知的统治者。有一年，这个王国发生了严重的饥荒，百姓们没有粮食吃，只能靠挖草根和食观音土来维持生命。</p>
 <p>司马衷听说了这个消息后非常担忧。他问身边的大臣：“百姓们没有米饭充饥，何不食肉糜呢？”大臣们听后都不知所措。</p>
 <p>这时，一个聪明的大臣站了出来。他对司马衷说：“陛下，百姓们连粮食都没有吃，哪里还有肉呢？我们应该想办法帮助他们度过难关。”</p>
 <p>司马衷听后恍然大悟。他下令开仓放粮，并派人到各地救济灾民。最终，在国王和大臣们的努力下，百姓们度过了这次饥荒。</p>
 <p>从那以后，“何不食肉糜”这句话就成为了人们提醒自己要关心百姓疾苦、用智慧解决问题的谚语。</p>
-]]></content><link href="https://github.com/jaydong2016/gitblog/issues/17" rel="alternate"/><category term="转载摘录"/><published>2023-07-03T09:06:30+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/16</id><title>Nginx 可视化管理界面</title><updated>2023-07-03T15:52:01.468867+00:00</updated><content type="html"><![CDATA[<blockquote>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/17" rel="alternate"/><category term="转载摘录"/><published>2023-07-03T09:06:30+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/16</id><title>Nginx 可视化管理界面</title><updated>2023-07-04T01:37:37.013462+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>今天给大家介绍一款 Nginx 可视化管理界面，非常好用，小白也能立马上手。</p>
 </blockquote>
 <p><img src="http://pic9.adone.eu.org/modb_20230329_01597a5a-cdd7-11ed-a521-38f9d3cd240d.png" alt="" /></p>
@@ -142,7 +287,7 @@ docker compose up -d
 <blockquote>
 <p>官方文档：<a href="https://nginxproxymanager.com/guide/">https://nginxproxymanager.com/guide/</a></p>
 </blockquote>
-]]></content><link href="https://github.com/jaydong2016/gitblog/issues/16" rel="alternate"/><category term="转载摘录"/><published>2023-07-03T08:52:04+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/15</id><title>&gt; 寻找蝈师</title><updated>2023-07-03T15:52:01.664083+00:00</updated><content type="html"><![CDATA[<blockquote>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/16" rel="alternate"/><category term="转载摘录"/><published>2023-07-03T08:52:04+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/15</id><title>&gt; 寻找蝈师</title><updated>2023-07-04T01:37:37.132765+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>寻找蝈师</p>
 </blockquote>
 <p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff0a996c5-0978-4c7d-97a3-35f86582ae19%2FIMG_20230501_113331.jpg?table=block&amp;id=f4016453-4cf9-4db7-bd01-c66efc2c27e4" alt="" /><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb0b717cc-741a-4228-b238-64f658006398%2FIMG_20230501_123857.jpg?table=block&amp;id=ec482973-b950-48de-8bcc-bb173cdf3eac" alt="" /><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F2cb1960d-3a82-4b1c-8ac2-3262a9cf2913%2FMVIMG_20230620_191903.jpg?table=block&amp;id=9d2cbeb0-ba72-4ac5-9cbc-16785666a63c" alt="" />  💡蝈师在不在</p>
@@ -152,7 +297,7 @@ docker compose up -d
 <li><strong>链接:</strong><a href="https://nb.adone.eu.org/article/example-3">https://nb.adone.eu.org/article/example-3</a></li>
 <li><strong>声明:</strong> 本文采用 CC BY-NC-SA 4.0 许可协议，转载请注明出处。</li>
 </ul>
-]]></content><link href="https://github.com/jaydong2016/gitblog/issues/15" rel="alternate"/><category term="心情随想"/><published>2023-07-03T08:41:14+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/14</id><title>【转载】申请CloudFlare免费15年的SSL证书</title><updated>2023-07-03T15:52:01.861700+00:00</updated><content type="html"><![CDATA[<blockquote>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/15" rel="alternate"/><category term="心情随想"/><published>2023-07-03T08:41:14+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/14</id><title>【转载】申请CloudFlare免费15年的SSL证书</title><updated>2023-07-04T01:37:37.208657+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>原文地址 vpsyx.com</p>
 </blockquote>
 <blockquote>
@@ -191,7 +336,7 @@ docker compose up -d
 <p>我们个人申请的 Let's encrypt 是 R3 级别的，cloudflare 帮我们申请的是 E1 级别的，有什么区别也不是很清楚，只知道是不一样的</p>
 <p>区别如官方图示</p>
 <p><img src="https://s2.loli.net/2023/06/30/mT7CdHbS5pElxar.png" alt="https://s2.loli.net/2023/06/30/mT7CdHbS5pElxar.png" /></p>
-]]></content><link href="https://github.com/jaydong2016/gitblog/issues/14" rel="alternate"/><category term="转载摘录"/><published>2023-07-03T08:28:42+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/13</id><title>【教程】1.1.1.1 Warp+ 24PB 几乎无限流量科学上网</title><updated>2023-07-03T15:52:02.037051+00:00</updated><content type="html"><![CDATA[<blockquote>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/14" rel="alternate"/><category term="转载摘录"/><published>2023-07-03T08:28:42+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/13</id><title>【教程】1.1.1.1 Warp+ 24PB 几乎无限流量科学上网</title><updated>2023-07-04T01:37:37.311005+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>1.1.1.1 Warp+ 24PB 无限流量密钥 一个自动获取 1.1.1.1 warp+ 24PB 无限流量…</p>
 </blockquote>
 <h3>1.1.1.1 Warp+ 24PB 无限流量密钥</h3>
@@ -210,7 +355,7 @@ docker compose up -d
 <h3>1.1.1.1 Warp+ 24PB 无限流量密钥获取地址</h3>
 <p>Wrap+ Bot：<a href="https://t.me/generatewarpplusbot">https://t.me/generatewarpplusbot</a></p>
 <p>原文链接：<a href="https://www.ahhhhfs.com/40632/" title="自动获取1.1.1.1 Warp+ 24PB 无限流量密钥 出海无忧">https://www.ahhhhfs.com/40632/</a></p>
-]]></content><link href="https://github.com/jaydong2016/gitblog/issues/13" rel="alternate"/><category term="置顶文章"/><published>2023-07-03T08:25:43+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/12</id><title>【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网</title><updated>2023-07-03T15:52:02.211915+00:00</updated><content type="html"><![CDATA[<blockquote>
+]]></content><link href="https://github.com/jaydong2016/gitblog/issues/13" rel="alternate"/><category term="置顶文章"/><published>2023-07-03T08:25:43+00:00</published></entry><entry><id>https://github.com/jaydong2016/gitblog/issues/12</id><title>【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网</title><updated>2023-07-04T01:37:37.405650+00:00</updated><content type="html"><![CDATA[<blockquote>
 <p>这是一个名为 edgetunnel 的 github 项目，可以通过 Cloudflare Workers 部署一个 vless协议的 V2ray代理。</p>
 </blockquote>
 <blockquote>
