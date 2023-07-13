@@ -13,7 +13,7 @@ MD_HEAD = """
 [![](https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png)](https://nb.adone.eu.org/)
 """
 BACKUP_DIR = "backup"
-ANCHOR_NUMBER = 5
+ANCHOR_NUMBER = 50
 TOP_ISSUES_LABELS = ["Top"]
 TODO_ISSUES_LABELS = ["TODO"]
 IGNORE_LABELS = TOP_ISSUES_LABELS + TODO_ISSUES_LABELS
