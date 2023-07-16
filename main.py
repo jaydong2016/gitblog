@@ -85,12 +85,8 @@ def add_issue_info(issue, md):
     time = format_time(issue.created_at)
     title = issue.title
     if len(title) > 20:
-        if re.search(u'[\u4e00-\u9fa5]', title):
-            title = re.findall(u'[\u4e00-\u9fa5]{1}', title[:20])
-            title = ''.join(title) + "..."
-        else:
-            title = title[:17] + "..."
-    md.write(f"{time} - [{title}]({issue.html_url})\n")
+        title = title[:17] + "..."
+    md.write(f"- [{time}] - [{title}]({issue.html_url})\n")
 
 
 def add_md_todo(repo, md, me):
