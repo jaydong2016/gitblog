@@ -84,15 +84,13 @@ def get_issues_from_label(repo, label):
 def add_issue_info(issue, md):
     time = format_time(issue.created_at)
     title = issue.title
-    if len(title) > 20:
-        # 判断标题是否包含中文字符
-        if re.search(u'[\u4e00-\u9fa5]', title):
-            # 使用正则表达式截取前20个中文字并添加省略号
-            title = re.findall(u'[\u4e00-\u9fa5]{1}', title[:20])
-            title = ''.join(title) + "..."
-        else:
-            title = title[:20] + "..."
+    title_length = len(re.findall(u'[\u4e00-\u9fa5]', title))  # 统计中文字数
+    if title_length > 20:
+        ellipsis_length = title_length - 20  # 超过长度的中文字数
+        title = re.findall(u'[\u4e00-\u9fa5]{1}', title)[:20]  # 取前20个中文字
+        title = ''.join(title) + "..."  # 添加省略号
     md.write(f"- [{time}] - [{title}]({issue.html_url})\n")
+
 
 
 def add_md_todo(repo, md, me):
