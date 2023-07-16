@@ -91,9 +91,8 @@ def add_issue_info(issue, md):
         title = re.findall(u'[\u4e00-\u9fa5]{1}', title)[:25]  # 取前25个中文字
         title = ''.join(title) + "..."  # 添加省略号
 
-    md.write(f"- [{title}]({issue.html_url})\n")
-    md.write(f"  {time}\n")
-
+    md.write(f"- [{title}]({issue.html_url})  \n")  # 在标题末尾添加两个空格并换行
+    md.write(f"{time}\n")  # 换行显示日期
 
 
 def add_md_todo(repo, md, me):
