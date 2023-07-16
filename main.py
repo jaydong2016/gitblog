@@ -12,7 +12,8 @@ MD_HEAD = """
 #### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/) 喜欢您来
 [![](https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png)](https://nb.adone.eu.org/)
 """
-BACKUP_DIR = "backup"
+
+BACKUP_DIR = "BACKUP"
 ANCHOR_NUMBER = 50
 TOP_ISSUES_LABELS = ["Top"]
 TODO_ISSUES_LABELS = ["TODO"]
@@ -32,10 +33,10 @@ def _valid_xml_char_ordinal(c):
     codepoint = ord(c)
     # conditions ordered by presumed frequency
     return (
-            0x20 <= codepoint <= 0xD7FF
-            or codepoint in (0x9, 0xA, 0xD)
-            or 0xE000 <= codepoint <= 0xFFFD
-            or 0x10000 <= codepoint <= 0x10FFFF
+        0x20 <= codepoint <= 0xD7FF
+        or codepoint in (0x9, 0xA, 0xD)
+        or 0xE000 <= codepoint <= 0xFFFD
+        or 0x10000 <= codepoint <= 0x10FFFF
     )
 
 
@@ -124,8 +125,6 @@ def add_md_recent(repo, md, me, limit=10):
                     count += 1
                     if count >= limit:
                         break
-                    # Backup issue
-                    save_issue(issue, me)
         except:
             return
 
@@ -209,24 +208,26 @@ def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
     user = login(token)
     me = get_me(user)
     repo = get_repo(user, repo_name)
-    # add to readme one by one, change order here
+
+    if not os.path.exists(BACKUP_DIR):
+        os.mkdir(BACKUP_DIR)
+
     add_md_header("README.md", repo_name)
     for func in [add_md_top, add_md_recent, add_md_label, add_md_todo]:
         func(repo, "README.md", me)
 
     generate_rss_feed(repo, "feed.xml", me)
-    to_generate_issues = get_to_generate_issues(repo, dir_name, issue_number)
+    to_generate_issues = get_to_generate_issues(repo, BACKUP_DIR, issue_number)
 
-    # save md files to backup folder
     for issue in to_generate_issues:
-        save_issue(issue, me, dir_name)
+        save_issue(issue, me)
 
 
-def save_issue(issue, me, dir_name=BACKUP_DIR):
+def save_issue(issue, me):
     md_name = os.path.join(
-        dir_name, f"{issue.number}_{issue.title.replace('/', '-').replace(' ', '.')}.md"
+        BACKUP_DIR, f"{issue.number}_{issue.title.replace(' ', '.')}.md"
     )
-    with open(md_name, "w", encoding="utf-8") as f:
+    with open(md_name, "w") as f:
         f.write(f"# [{issue.title}]({issue.html_url})\n\n")
         f.write(issue.body)
         if issue.comments:
@@ -237,8 +238,6 @@ def save_issue(issue, me, dir_name=BACKUP_DIR):
 
 
 if __name__ == "__main__":
-    if not os.path.exists(BACKUP_DIR):
-        os.mkdir(BACKUP_DIR)
     parser = argparse.ArgumentParser()
     parser.add_argument("github_token", help="github_token")
     parser.add_argument("repo_name", help="repo_name")
