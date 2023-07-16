@@ -11,9 +11,7 @@ from lxml.etree import CDATA
 MD_HEAD = """
 #### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/) 喜欢您来
 [![](https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png)](https://nb.adone.eu.org/)
-
 """
-
 BACKUP_DIR = "BACKUP"
 ANCHOR_NUMBER = 50
 TOP_ISSUES_LABELS = ["Top"]
@@ -225,7 +223,6 @@ def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
 
     # Create README.md and add Snake Code Contribution Map
     add_md_header("README.md", repo_name)
-
     with open("README.md", "a+", encoding="utf-8") as md:
         md.write("\n")
         md.write('<div>\n\n')
@@ -242,7 +239,6 @@ def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
         )
         md.write('</picture>\n\n')
         md.write('</div>\n\n')
-
     # Add remaining content to README.md
     for func in [add_md_top, add_md_recent, add_md_label, add_md_todo]:
         func(repo, "README.md", me)
