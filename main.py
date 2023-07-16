@@ -7,10 +7,9 @@ from marko.ext.gfm import gfm as marko
 from github import Github
 from feedgen.feed import FeedGenerator
 from lxml.etree import CDATA
-
 MD_HEAD = """
 [![](https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png)](https://nb.adone.eu.org/)
-#### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/) 
+#### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/)
 ### 喜欢您来！
 """
 BACKUP_DIR = "BACKUP"
@@ -18,7 +17,6 @@ ANCHOR_NUMBER = 50
 TOP_ISSUES_LABELS = ["Top"]
 TODO_ISSUES_LABELS = ["TODO"]
 IGNORE_LABELS = TOP_ISSUES_LABELS + TODO_ISSUES_LABELS
-
 
 def get_me(user):
     return user.get_user().login
