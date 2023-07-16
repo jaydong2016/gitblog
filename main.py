@@ -13,6 +13,8 @@ MD_HEAD = """
 [![](https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png)](https://nb.adone.eu.org/)
 """
 
+  </div>
+
   <!-- Snake Code Contribution Map 贪吃蛇代码贡献图 -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/profile-snake-contrib/github-contribution-grid-snake-dark.svg" />
@@ -20,6 +22,7 @@ MD_HEAD = """
   <img alt="github-snake" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/profile-snake-contrib/github-contribution-grid-snake-dark.svg" />
 </picture>
 
+</div>
 
 BACKUP_DIR = "BACKUP"
 ANCHOR_NUMBER = 50
@@ -99,7 +102,7 @@ def add_issue_info(issue, md):
         title = re.findall(u'[\u4e00-\u9fa5]{1}', title)[:30]  # 取前25个中文字
         title = ''.join(title) + "..."  # 添加省略号
 
-    md.write(f"- **[{title}]({issue.html_url})**  \n")  # 在标题末尾添加两个空格并换行
+    md.write(f"- [{title}]({issue.html_url})  \n")  # 在标题末尾添加两个空格并换行
     md.write(f"{time}\n")  # 换行显示日期
 
 
