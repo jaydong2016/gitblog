@@ -80,7 +80,6 @@ def get_repo_labels(repo):
 def get_issues_from_label(repo, label):
     return repo.get_issues(labels=(label,))
 
-
 def add_issue_info(issue, md):
     time = format_time(issue.created_at)
     time = time.replace("-", ".")  # 将日期中的破折号替换为点号
@@ -90,8 +89,8 @@ def add_issue_info(issue, md):
         ellipsis_length = title_length - 25  # 超过长度的中文字数
         title = re.findall(u'[\u4e00-\u9fa5]{1}', title)[:25]  # 取前25个中文字
         title = ''.join(title) + "..."  # 添加省略号
-    md.write(f"- {time} - [{title}]({issue.html_url})\n")
-
+    md.write(f"- [{title}]({issue.html_url})\n")
+    md.write(f"  {time}\n")
 
 
 def add_md_todo(repo, md, me):
