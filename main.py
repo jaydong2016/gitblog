@@ -124,6 +124,8 @@ def add_md_recent(repo, md, me, limit=10):
                     count += 1
                     if count >= limit:
                         break
+                    # Backup issue
+                    save_issue(issue, me)
         except:
             return
 
@@ -222,7 +224,7 @@ def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
 
 def save_issue(issue, me, dir_name=BACKUP_DIR):
     md_name = os.path.join(
-        dir_name, f"{issue.number}_{issue.title.replace(' ', '.')}.md"
+        dir_name, f"{issue.number}_{issue.title.replace('/', '-').replace(' ', '.')}.md"
     )
     with open(md_name, "w") as f:
         f.write(f"# [{issue.title}]({issue.html_url})\n\n")
