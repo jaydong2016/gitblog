@@ -28,7 +28,7 @@ def is_me(issue, me):
     return issue.user.login == me
 
 
-# help to covert xml vaild string
+# help to covert xml valid string
 def _valid_xml_char_ordinal(c):
     codepoint = ord(c)
     # conditions ordered by presumed frequency
@@ -79,6 +79,7 @@ def get_repo_labels(repo):
 
 def get_issues_from_label(repo, label):
     return repo.get_issues(labels=(label,))
+
 
 def add_issue_info(issue, md):
     time = format_time(issue.created_at)
@@ -222,6 +223,25 @@ def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
         os.mkdir(BACKUP_DIR)
 
     add_md_header("README.md", repo_name)
+
+    # Add Snake Code Contribution Map
+    with open("README.md", "a+", encoding="utf-8") as md:
+        md.write("\n")
+        md.write("<div>\n\n")
+        md.write("<!-- Snake Code Contribution Map 贪吃蛇代码贡献图 -->\n")
+        md.write('<picture>\n')
+        md.write(
+            '  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/profile-snake-contrib/github-contribution-grid-snake-dark.svg" />\n'
+        )
+        md.write(
+            '  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/profile-snake-contrib/github-contribution-grid-snake.svg" />\n'
+        )
+        md.write(
+            '  <img alt="github-snake" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/profile-snake-contrib/github-contribution-grid-snake-dark.svg" />\n'
+        )
+        md.write("</picture>\n\n")
+        md.write("</div>\n")
+
     for func in [add_md_top, add_md_recent, add_md_label, add_md_todo]:
         func(repo, "README.md", me)
 
