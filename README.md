@@ -14,7 +14,7 @@
 </div>
 
 # 最近更新
-- [蓐土土雨花台区是非常撒旦](https://github.com/jaydong2016/gitblog/issues/36)  
+- [为什么这么多男人喜欢钓鱼且乐此不疲？](https://github.com/jaydong2016/gitblog/issues/37)  
 2023/07/16
 - [测试测试测试](https://github.com/jaydong2016/gitblog/issues/35)  
 2023/07/16
@@ -35,7 +35,7 @@
 - [何不食肉糜](https://github.com/jaydong2016/gitblog/issues/17)  
 2023/07/03
 ## 新鲜趣闻
-- [蓐土土雨花台区是非常撒旦](https://github.com/jaydong2016/gitblog/issues/36)  
+- [为什么这么多男人喜欢钓鱼且乐此不疲？](https://github.com/jaydong2016/gitblog/issues/37)  
 2023/07/16
 - [测试测试测试](https://github.com/jaydong2016/gitblog/issues/35)  
 2023/07/16
