@@ -82,7 +82,6 @@ def get_issues_from_label(repo, label):
 
 def add_issue_info(issue, md):
     time = format_time(issue.created_at)
-    time = time.replace("-", ".")  # 将日期中的破折号替换为点号
     title = issue.title
     title_length = len(re.findall(u'[\u4e00-\u9fa5]', title))  # 统计中文字数
 
