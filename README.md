@@ -4,7 +4,7 @@
 # 最近更新
 - [广东到底是大城市啊](https://github.com/jaydong2016/gitblog/issues/26)  
 2023.07.15
-- [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管...](https://github.com/jaydong2016/gitblog/issues/25)  
+- [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管理律师称不能认定...](https://github.com/jaydong2016/gitblog/issues/25)  
 2023.07.13
 - [2023 年还有人去电脑城？我朋友去了，被骗了两千块](https://github.com/jaydong2016/gitblog/issues/23)  
 2023.07.12
@@ -23,7 +23,7 @@
 - [> 寻找蝈师](https://github.com/jaydong2016/gitblog/issues/15)  
 2023.07.03
 ## 新鲜趣闻
-- [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管...](https://github.com/jaydong2016/gitblog/issues/25)  
+- [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管理律师称不能认定...](https://github.com/jaydong2016/gitblog/issues/25)  
 2023.07.13
 - [2023 年还有人去电脑城？我朋友去了，被骗了两千块](https://github.com/jaydong2016/gitblog/issues/23)  
 2023.07.12
@@ -33,7 +33,7 @@
 - [【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网](https://github.com/jaydong2016/gitblog/issues/12)  
 2023.07.03
 ## 转载摘录
-- [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管...](https://github.com/jaydong2016/gitblog/issues/25)  
+- [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管理律师称不能认定...](https://github.com/jaydong2016/gitblog/issues/25)  
 2023.07.13
 - [说到这次天门山结伴跳崖的几个年轻人](https://github.com/jaydong2016/gitblog/issues/22)  
 2023.07.12
