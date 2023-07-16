@@ -5,7 +5,7 @@
 2023-07-16 - [古城墙](https://github.com/jaydong2016/gitblog/issues/33)
 2023-07-16 - [dddddd](https://github.com/jaydong2016/gitblog/issues/32)
 2023-07-15 - [广东到底是大城市啊](https://github.com/jaydong2016/gitblog/issues/26)
-2023-07-13 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好...](https://github.com/jaydong2016/gitblog/issues/25)
+2023-07-13 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管...](https://github.com/jaydong2016/gitblog/issues/25)
 2023-07-12 - [2023 年还有人去电脑城？我朋友去了，被骗了两千块](https://github.com/jaydong2016/gitblog/issues/23)
 2023-07-12 - [说到这次天门山结伴跳崖的几个年轻人](https://github.com/jaydong2016/gitblog/issues/22)
 2023-07-11 - [为什么往死里扫黄？（二）](https://github.com/jaydong2016/gitblog/issues/21)
@@ -15,13 +15,13 @@
 ## 新鲜趣闻
 2023-07-16 - [古城墙](https://github.com/jaydong2016/gitblog/issues/33)
 2023-07-16 - [dddddd](https://github.com/jaydong2016/gitblog/issues/32)
-2023-07-13 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好...](https://github.com/jaydong2016/gitblog/issues/25)
+2023-07-13 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管...](https://github.com/jaydong2016/gitblog/issues/25)
 2023-07-12 - [2023 年还有人去电脑城？我朋友去了，被骗了两千块](https://github.com/jaydong2016/gitblog/issues/23)
 ## 置顶文章
 2023-07-03 - [【教程】1.1.1.1 Warp+ 24PB 几乎无限流量科学上网](https://github.com/jaydong2016/gitblog/issues/13)
 2023-07-03 - [【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网](https://github.com/jaydong2016/gitblog/issues/12)
 ## 转载摘录
-2023-07-13 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好...](https://github.com/jaydong2016/gitblog/issues/25)
+2023-07-13 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管...](https://github.com/jaydong2016/gitblog/issues/25)
 2023-07-12 - [说到这次天门山结伴跳崖的几个年轻人](https://github.com/jaydong2016/gitblog/issues/22)
 2023-07-11 - [为什么往死里扫黄？（二）](https://github.com/jaydong2016/gitblog/issues/21)
 2023-07-11 - [为什么往死里扫黄？](https://github.com/jaydong2016/gitblog/issues/20)
