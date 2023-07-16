@@ -83,7 +83,10 @@ def get_issues_from_label(repo, label):
 
 def add_issue_info(issue, md):
     time = format_time(issue.created_at)
-    md.write(f"- [{time}] - [{issue.title}]({issue.html_url})\n")
+    title = issue.title
+    if len(title) > 20:
+        title = title[:17] + "..."
+    md.write(f"- [{time}] - [{title}]({issue.html_url})\n")
 
 
 def add_md_todo(repo, md, me):
