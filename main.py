@@ -11,6 +11,7 @@ from lxml.etree import CDATA
 MD_HEAD = """
 #### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/) 喜欢您来
 [![](https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png)](https://nb.adone.eu.org/)
+
 """
 
 BACKUP_DIR = "BACKUP"
@@ -28,7 +29,7 @@ def is_me(issue, me):
     return issue.user.login == me
 
 
-# help to covert xml valid string
+# help to convert xml valid string
 def _valid_xml_char_ordinal(c):
     codepoint = ord(c)
     # conditions ordered by presumed frequency
@@ -222,13 +223,13 @@ def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
     if not os.path.exists(BACKUP_DIR):
         os.mkdir(BACKUP_DIR)
 
+    # Create README.md and add Snake Code Contribution Map
     add_md_header("README.md", repo_name)
 
-    # Add Snake Code Contribution Map
     with open("README.md", "a+", encoding="utf-8") as md:
         md.write("\n")
-        md.write("<div>\n\n")
-        md.write("<!-- Snake Code Contribution Map 贪吃蛇代码贡献图 -->\n")
+        md.write('<div>\n\n')
+        md.write('<!-- Snake Code Contribution Map 贪吃蛇代码贡献图 -->\n')
         md.write('<picture>\n')
         md.write(
             '  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/profile-snake-contrib/github-contribution-grid-snake-dark.svg" />\n'
@@ -239,9 +240,10 @@ def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
         md.write(
             '  <img alt="github-snake" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/profile-snake-contrib/github-contribution-grid-snake-dark.svg" />\n'
         )
-        md.write("</picture>\n\n")
-        md.write("</div>\n")
+        md.write('</picture>\n\n')
+        md.write('</div>\n\n')
 
+    # Add remaining content to README.md
     for func in [add_md_top, add_md_recent, add_md_label, add_md_todo]:
         func(repo, "README.md", me)
 
