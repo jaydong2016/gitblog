@@ -64,18 +64,18 @@ def add_issue_info(issue, md):
 
 def add_md_section(repo, md, me, section_name, issues, limit=None):
     count = 0
-    with open(md, "a+", encoding="utf-8") as md:
-        md.write(f"## {section_name}\n")
+    with open(md, "a+", encoding="utf-8") as md_file:
+        md_file.write(f"## {section_name}\n")
         for issue in issues:
             if count == limit:
-                md.write("<details><summary>显示更多</summary>\n")
-                md.write("\n")
+                md_file.write("<details><summary>显示更多</summary>\n")
+                md_file.write("\n")
             if is_me(issue, me):
-                add_issue_info(issue, md)
+                add_issue_info(issue, md_file)
                 count += 1
         if count > limit:
-            md.write("</details>\n")
-            md.write("\n")
+            md_file.write("</details>\n")
+            md_file.write("\n")
 
 
 def add_md_header(md, repo_name):
@@ -143,19 +143,19 @@ def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
 
     labels = [label for label in repo.get_labels() if label.name not in IGNORE_LABELS]
     for label in labels:
-        issues = get_issues_with_label(repo, label)
-        add_md_section(repo, "README.md", me, label.name, issues)
+        issues = get_issues_with_label(repo, label.name)
+        add_md_section(repo, "README.md", me, label.name, issues, limit=ANCHOR_NUMBER)
 
     generate_rss_feed(repo, "feed.xml", me)
 
     to_generate_issues = get_to_generate_issues(repo, dir_name, issue_number)
     for issue in to_generate_issues:
-        save_issue(issue)
+        save_issue(issue, me, dir_name)
 
 
-def save_issue(issue, me):
+def save_issue(issue, me, dir_name=BACKUP_DIR):
     md_name = os.path.join(
-        BACKUP_DIR, f"{issue.number}_{issue.title.replace(' ', '.')}.md"
+        dir_name, f"{issue.number}_{issue.title.replace(' ', '.')}.md"
     )
     with open(md_name, "w") as f:
         f.write(f"# [{issue.title}]({issue.html_url})\n\n")
