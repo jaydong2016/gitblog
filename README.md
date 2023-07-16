@@ -1,6 +1,6 @@
 
-#### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/) 喜欢您来
 [![](https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png)](https://nb.adone.eu.org/)
+#### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/) 喜欢您来
 
 <div>
 
@@ -15,8 +15,6 @@
 
 # 最近更新
 - [为什么这么多男人喜欢钓鱼且乐此不疲？](https://github.com/jaydong2016/gitblog/issues/37)  
-2023/07/16
-- [测试测试测试](https://github.com/jaydong2016/gitblog/issues/35)  
 2023/07/16
 - [广东到底是大城市啊](https://github.com/jaydong2016/gitblog/issues/26)  
 2023/07/15
@@ -34,10 +32,10 @@
 2023/07/04
 - [何不食肉糜](https://github.com/jaydong2016/gitblog/issues/17)  
 2023/07/03
+- [Nginx 可视化管理界面](https://github.com/jaydong2016/gitblog/issues/16)  
+2023/07/03
 ## 新鲜趣闻
 - [为什么这么多男人喜欢钓鱼且乐此不疲？](https://github.com/jaydong2016/gitblog/issues/37)  
-2023/07/16
-- [测试测试测试](https://github.com/jaydong2016/gitblog/issues/35)  
 2023/07/16
 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管理律师称不...](https://github.com/jaydong2016/gitblog/issues/25)  
 2023/07/13
