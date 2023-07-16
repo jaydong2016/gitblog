@@ -1,6 +1,7 @@
 
-[![](https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png)](https://nb.adone.eu.org/)
-#### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/) 喜欢您来
+[![](https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png)](https://nb.adone.eu.org/)
+#### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/) 
+### 喜欢您来！
 
 <div>
 
