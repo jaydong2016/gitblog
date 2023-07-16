@@ -1,6 +1,17 @@
 
 #### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/) 喜欢您来
 [![](https://s2.loli.net/2023/07/03/WxmifsloVXrYz2I.png)](https://nb.adone.eu.org/)
+
+<div>
+
+<!-- Snake Code Contribution Map 贪吃蛇代码贡献图 -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/profile-snake-contrib/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/profile-snake-contrib/github-contribution-grid-snake.svg" />
+  <img alt="github-snake" src="https://cdn.jsdelivr.net/gh/sun0225SUN/sun0225SUN/profile-snake-contrib/github-contribution-grid-snake-dark.svg" />
+</picture>
+
+</div>
 # 最近更新
 - [测试测试测试](https://github.com/jaydong2016/gitblog/issues/35)  
 2023/07/16
