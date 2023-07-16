@@ -85,7 +85,13 @@ def add_issue_info(issue, md):
     time = format_time(issue.created_at)
     title = issue.title
     if len(title) > 20:
-        title = title[:17] + "..."
+        # 判断标题是否包含中文字符
+        if re.search(u'[\u4e00-\u9fa5]', title):
+            # 使用正则表达式截取前20个中文字并添加省略号
+            title = re.findall(u'[\u4e00-\u9fa5]{1}', title[:20])
+            title = ''.join(title) + "..."
+        else:
+            title = title[:20] + "..."
     md.write(f"- [{time}] - [{title}]({issue.html_url})\n")
 
 
