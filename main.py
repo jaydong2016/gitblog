@@ -28,6 +28,18 @@ def is_me(issue, me):
     return issue.user.login == me
 
 
+# help to covert xml vaild string
+def _valid_xml_char_ordinal(c):
+    codepoint = ord(c)
+    # conditions ordered by presumed frequency
+    return (
+        0x20 <= codepoint <= 0xD7FF
+        or codepoint in (0x9, 0xA, 0xD)
+        or 0xE000 <= codepoint <= 0xFFFD
+        or 0x10000 <= codepoint <= 0x10FFFF
+    )
+
+
 def format_time(time):
     return str(time)[:10]
 
@@ -36,7 +48,7 @@ def login(token):
     return Github(token)
 
 
-def get_repo(user, repo):
+def get_repo(user: Github, repo: str):
     return user.get_repo(repo)
 
 
@@ -53,34 +65,101 @@ def parse_TODO(issue):
     )
 
 
-def get_issues_with_label(repo, label):
+def get_top_issues(repo):
+    return repo.get_issues(labels=TOP_ISSUES_LABELS)
+
+
+def get_todo_issues(repo):
+    return repo.get_issues(labels=TODO_ISSUES_LABELS)
+
+
+def get_repo_labels(repo):
+    return [l for l in repo.get_labels()]
+
+
+def get_issues_from_label(repo, label):
     return repo.get_issues(labels=(label,))
 
 
 def add_issue_info(issue, md):
     time = format_time(issue.created_at)
-    md.write(f"- [{issue.title}]({issue.html_url})--{time}\n")
+    md.write(f"- [{time}] - [{issue.title}]({issue.html_url})\n")
 
 
-def add_md_section(repo, md, me, section_name, issues, limit=None):
-    count = 0
-    with open(md, "a+", encoding="utf-8") as md_file:
-        md_file.write(f"## {section_name}\n")
-        for issue in issues:
-            if count == limit:
-                md_file.write("<details><summary>显示更多</summary>\n")
-                md_file.write("\n")
+def add_md_todo(repo, md, me):
+    todo_issues = list(get_todo_issues(repo))
+    if not TODO_ISSUES_LABELS or not todo_issues:
+        return
+    with open(md, "a+", encoding="utf-8") as md:
+        md.write("## TODO\n")
+        for issue in todo_issues:
             if is_me(issue, me):
-                add_issue_info(issue, md_file)
-                count += 1
-        if count > limit:
-            md_file.write("</details>\n")
-            md_file.write("\n")
+                todo_title, todo_list = parse_TODO(issue)
+                md.write("TODO list from " + todo_title + "\n")
+                for t in todo_list:
+                    md.write(t + "\n")
+                # new line
+                md.write("\n")
+
+
+def add_md_top(repo, md, me):
+    top_issues = list(get_top_issues(repo))
+    if not TOP_ISSUES_LABELS or not top_issues:
+        return
+    with open(md, "a+", encoding="utf-8") as md:
+        md.write("## 置顶文章\n")
+        for issue in top_issues:
+            if is_me(issue, me):
+                add_issue_info(issue, md)
+
+
+def add_md_recent(repo, md, me, limit=10):
+    count = 0
+    with open(md, "a+", encoding="utf-8") as md:
+        # one the issue that only one issue and delete (pyGitHub raise an exception)
+        try:
+            md.write("# 最近更新\n")
+            for issue in repo.get_issues():
+                if is_me(issue, me):
+                    add_issue_info(issue, md)
+                    count += 1
+                    if count >= limit:
+                        break
+        except:
+            return
 
 
 def add_md_header(md, repo_name):
-    with open(md, "w", encoding="utf-8") as md_file:
-        md_file.write(MD_HEAD)
+    with open(md, "w", encoding="utf-8") as md:
+        md.write(MD_HEAD.format(repo_name=repo_name))
+
+
+def add_md_label(repo, md, me):
+    labels = get_repo_labels(repo)
+    with open(md, "a+", encoding="utf-8") as md:
+        for label in labels:
+
+            # we don't need add top label again
+            if label.name in IGNORE_LABELS:
+                continue
+
+            issues = get_issues_from_label(repo, label)
+            if issues.totalCount:
+                md.write("## " + label.name + "\n")
+                issues = sorted(issues, key=lambda x: x.created_at, reverse=True)
+            i = 0
+            for issue in issues:
+                if not issue:
+                    continue
+                if is_me(issue, me):
+                    if i == ANCHOR_NUMBER:
+                        md.write("<details><summary>显示更多</summary>\n")
+                        md.write("\n")
+                    add_issue_info(issue, md)
+                    i += 1
+            if i > ANCHOR_NUMBER:
+                md.write("</details>\n")
+                md.write("\n")
 
 
 def get_to_generate_issues(repo, dir_name, issue_number=None):
@@ -134,31 +213,22 @@ def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
         os.mkdir(BACKUP_DIR)
 
     add_md_header("README.md", repo_name)
-
-    top_issues = list(get_issues_with_label(repo, "Top"))
-    add_md_section(repo, "README.md", me, "置顶文章", top_issues)
-
-    recent_issues = list(repo.get_issues())
-    add_md_section(repo, "README.md", me, "最近更新", recent_issues, limit=10)
-
-    labels = [label for label in repo.get_labels() if label.name not in IGNORE_LABELS]
-    for label in labels:
-        issues = get_issues_with_label(repo, label.name)
-        add_md_section(repo, "README.md", me, label.name, issues, limit=ANCHOR_NUMBER)
+    for func in [add_md_top, add_md_recent, add_md_label, add_md_todo]:
+        func(repo, "README.md", me)
 
     generate_rss_feed(repo, "feed.xml", me)
+    to_generate_issues = get_to_generate_issues(repo, BACKUP_DIR, issue_number)
 
-    to_generate_issues = get_to_generate_issues(repo, dir_name, issue_number)
     for issue in to_generate_issues:
-        save_issue(issue, me, dir_name)
+        save_issue(issue, me)
 
 
-def save_issue(issue, me, dir_name=BACKUP_DIR):
+def save_issue(issue, me):
     md_name = os.path.join(
-        dir_name, f"{issue.number}_{issue.title.replace(' ', '.')}.md"
+        BACKUP_DIR, f"{issue.number}_{issue.title.replace(' ', '.')}.md"
     )
     with open(md_name, "w") as f:
-        f.write(f"# [{issue.title}]({issue.html_url})\n\n")
+        f.write(f"# [{format_time(issue.created_at)}] - [{issue.title}]({issue.html_url})\n\n")
         f.write(issue.body)
         if issue.comments:
             for c in issue.get_comments():
