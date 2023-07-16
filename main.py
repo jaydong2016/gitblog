@@ -85,12 +85,15 @@ def add_issue_info(issue, md):
     time = time.replace("-", ".")  # 将日期中的破折号替换为点号
     title = issue.title
     title_length = len(re.findall(u'[\u4e00-\u9fa5]', title))  # 统计中文字数
+
     if title_length > 25:
         ellipsis_length = title_length - 25  # 超过长度的中文字数
         title = re.findall(u'[\u4e00-\u9fa5]{1}', title)[:25]  # 取前25个中文字
         title = ''.join(title) + "..."  # 添加省略号
+
     md.write(f"- [{title}]({issue.html_url})\n")
     md.write(f"  {time}\n")
+
 
 
 def add_md_todo(repo, md, me):
