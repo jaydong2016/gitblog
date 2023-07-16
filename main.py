@@ -198,4 +198,50 @@ def generate_rss_feed(repo, filename, me):
         item.published(issue.created_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
         for label in issue.labels:
             item.category({"term": label.name})
-        body = "".join(c for c in issue
+        body = "".join(c for c in issue.body if _valid_xml_char_ordinal(c))
+        item.content(CDATA(marko.convert(body)), type="html")
+    generator.atom_file(filename)
+
+
+def main(token, repo_name, issue_number=None, dir_name=BACKUP_DIR):
+    user = login(token)
+    me = get_me(user)
+    repo = get_repo(user, repo_name)
+    # add to readme one by one, change order here
+    add_md_header("README.md", repo_name)
+    for func in [add_md_top, add_md_recent, add_md_label, add_md_todo]:
+        func(repo, "README.md", me)
+
+    generate_rss_feed(repo, "feed.xml", me)
+    to_generate_issues = get_to_generate_issues(repo, dir_name, issue_number)
+
+    # save md files to backup folder
+    for issue in to_generate_issues:
+        save_issue(issue, me, dir_name)
+
+
+def save_issue(issue, me, dir_name=BACKUP_DIR):
+    md_name = os.path.join(
+        dir_name, f"{issue.number}_{issue.title.replace(' ', '.')}.md"
+    )
+    with open(md_name, "w") as f:
+        f.write(f"# [{issue.title}]({issue.html_url})\n\n")
+        f.write(issue.body)
+        if issue.comments:
+            for c in issue.get_comments():
+                if is_me(c, me):
+                    f.write("\n\n---\n\n")
+                    f.write(c.body)
+
+
+if __name__ == "__main__":
+    if not os.path.exists(BACKUP_DIR):
+        os.mkdir(BACKUP_DIR)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("github_token", help="github_token")
+    parser.add_argument("repo_name", help="repo_name")
+    parser.add_argument(
+        "--issue_number", help="issue_number", default=None, required=False
+    )
+    options = parser.parse_args()
+    main(options.github_token, options.repo_name, options.issue_number)
