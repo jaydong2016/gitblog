@@ -14,6 +14,8 @@
 </div>
 
 # 最近更新
+- [什么才叫法治社会？](https://github.com/jaydong2016/gitblog/issues/38)  
+2023/07/17
 - [为什么这么多男人喜欢钓鱼且乐此不疲？](https://github.com/jaydong2016/gitblog/issues/37)  
 2023/07/16
 - [广东到底是大城市啊](https://github.com/jaydong2016/gitblog/issues/26)  
@@ -32,9 +34,9 @@
 2023/07/04
 - [何不食肉糜](https://github.com/jaydong2016/gitblog/issues/17)  
 2023/07/03
-- [Nginx 可视化管理界面](https://github.com/jaydong2016/gitblog/issues/16)  
-2023/07/03
 ## 新鲜趣闻
+- [什么才叫法治社会？](https://github.com/jaydong2016/gitblog/issues/38)  
+2023/07/17
 - [为什么这么多男人喜欢钓鱼且乐此不疲？](https://github.com/jaydong2016/gitblog/issues/37)  
 2023/07/16
 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管理律师称不...](https://github.com/jaydong2016/gitblog/issues/25)  
