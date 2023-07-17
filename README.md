@@ -1,7 +1,6 @@
 
-[![](https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png)](https://nb.adone.eu.org/)
-#### [Github issues 博客](https://github.adone.eu.org/) & [Notion 博客](https://nb.adone.eu.org/)
-### 喜欢您来！
+[![](https://raw.githubusercontent.com/jaydong2016/pic9/main/img/bz-apple-touch-icon.png)](https://nb.adone.eu.org/)
+#### [Github issues 博客](https://github.adone.eu.org/)  &  [Notion 博客](https://nb.adone.eu.org/)
 
 <div>
 
