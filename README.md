@@ -34,7 +34,7 @@
 2023/07/04
 - [何不食肉糜](https://github.com/jaydong2016/gitblog/issues/17)  
 2023/07/03
-## 新鲜趣闻
+## 时事趣闻
 - [什么才叫法治社会？](https://github.com/jaydong2016/gitblog/issues/38)  
 2023/07/17
 - [为什么这么多男人喜欢钓鱼且乐此不疲？](https://github.com/jaydong2016/gitblog/issues/37)  
