@@ -14,6 +14,9 @@
 </div>
 
 # 最近更新
+- [把一切都归咎为“境外势力”的人
+本质上是不把中国人当人的人](https://github.com/jaydong2016/gitblog/issues/40)  
+2023/07/21
 - [为什么有人会特别喜欢香港？](https://github.com/jaydong2016/gitblog/issues/39)  
 2023/07/17
 - [什么才叫法治社会？](https://github.com/jaydong2016/gitblog/issues/38)  
@@ -32,8 +35,6 @@
 2023/07/11
 - [为什么往死里扫黄？](https://github.com/jaydong2016/gitblog/issues/20)  
 2023/07/11
-- [【教程】拯救你的拉垮VPS，一键脚本搭建 Tuic V5 ](https://github.com/jaydong2016/gitblog/issues/19)  
-2023/07/04
 ## 时事趣闻
 - [什么才叫法治社会？](https://github.com/jaydong2016/gitblog/issues/38)  
 2023/07/17
@@ -49,6 +50,9 @@
 - [【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网](https://github.com/jaydong2016/gitblog/issues/12)  
 2023/07/03
 ## 转载摘录
+- [把一切都归咎为“境外势力”的人
+本质上是不把中国人当人的人](https://github.com/jaydong2016/gitblog/issues/40)  
+2023/07/21
 - [为什么有人会特别喜欢香港？](https://github.com/jaydong2016/gitblog/issues/39)  
 2023/07/17
 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管理律师称不...](https://github.com/jaydong2016/gitblog/issues/25)  
