@@ -14,6 +14,8 @@
 </div>
 
 # 最近更新
+- [ChatGPT 国粹版，快来和 GPT 一起愉快的学习吧](https://github.com/jaydong2016/gitblog/issues/42)  
+2023/07/22
 - [一些醒目标语，可能是飙语](https://github.com/jaydong2016/gitblog/issues/41)  
 2023/07/21
 - [为什么有人会特别喜欢香港？](https://github.com/jaydong2016/gitblog/issues/39)  
@@ -32,8 +34,9 @@
 2023/07/12
 - [为什么往死里扫黄？（二）](https://github.com/jaydong2016/gitblog/issues/21)  
 2023/07/11
-- [为什么往死里扫黄？](https://github.com/jaydong2016/gitblog/issues/20)  
-2023/07/11
+## Chat GPT
+- [ChatGPT 国粹版，快来和 GPT 一起愉快的学习吧](https://github.com/jaydong2016/gitblog/issues/42)  
+2023/07/22
 ## 时事趣闻
 - [一些醒目标语，可能是飙语](https://github.com/jaydong2016/gitblog/issues/41)  
 2023/07/21
