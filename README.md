@@ -14,6 +14,8 @@
 </div>
 
 # 最近更新
+- [妈味 GPT](https://github.com/jaydong2016/gitblog/issues/43)  
+2023/07/23
 - [ChatGPT 国粹版，快来和 GPT 一起愉快的学习吧](https://github.com/jaydong2016/gitblog/issues/42)  
 2023/07/22
 - [一些醒目标语，可能是飙语](https://github.com/jaydong2016/gitblog/issues/41)  
@@ -32,9 +34,9 @@
 2023/07/12
 - [说到这次天门山结伴跳崖的几个年轻人](https://github.com/jaydong2016/gitblog/issues/22)  
 2023/07/12
-- [为什么往死里扫黄？（二）](https://github.com/jaydong2016/gitblog/issues/21)  
-2023/07/11
 ## Chat GPT
+- [妈味 GPT](https://github.com/jaydong2016/gitblog/issues/43)  
+2023/07/23
 - [ChatGPT 国粹版，快来和 GPT 一起愉快的学习吧](https://github.com/jaydong2016/gitblog/issues/42)  
 2023/07/22
 ## 时事趣闻
