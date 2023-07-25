@@ -14,6 +14,8 @@
 </div>
 
 # 最近更新
+- [7.23 齐齐哈尔市第34中学体育馆](https://github.com/jaydong2016/gitblog/issues/44)  
+2023/07/25
 - [妈味 GPT](https://github.com/jaydong2016/gitblog/issues/43)  
 2023/07/23
 - [ChatGPT 国粹版，快来和 GPT 一起愉快的学习吧](https://github.com/jaydong2016/gitblog/issues/42)  
@@ -31,8 +33,6 @@
 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管理律师称不...](https://github.com/jaydong2016/gitblog/issues/25)  
 2023/07/13
 - [2023 年还有人去电脑城？我朋友去了，被骗了两千块](https://github.com/jaydong2016/gitblog/issues/23)  
-2023/07/12
-- [说到这次天门山结伴跳崖的几个年轻人](https://github.com/jaydong2016/gitblog/issues/22)  
 2023/07/12
 ## Chat GPT
 - [妈味 GPT](https://github.com/jaydong2016/gitblog/issues/43)  
@@ -56,6 +56,8 @@
 - [【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网](https://github.com/jaydong2016/gitblog/issues/12)  
 2023/07/03
 ## 转载摘录
+- [7.23 齐齐哈尔市第34中学体育馆](https://github.com/jaydong2016/gitblog/issues/44)  
+2023/07/25
 - [为什么有人会特别喜欢香港？](https://github.com/jaydong2016/gitblog/issues/39)  
 2023/07/17
 - [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管理律师称不...](https://github.com/jaydong2016/gitblog/issues/25)  
