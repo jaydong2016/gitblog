@@ -19,6 +19,8 @@
 - [【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网](https://github.com/jaydong2016/gitblog/issues/12)  
 2023/07/03
 # 最近更新
+- [罗大佑万万没想到，香港送走皇后二十年迎来了皇帝](https://github.com/jaydong2016/gitblog/issues/47)  
+2023/07/26
 - [【转载】丢了一把伞](https://github.com/jaydong2016/gitblog/issues/46)  
 2023/07/25
 - [7.23 齐齐哈尔市第34中学体育馆](https://github.com/jaydong2016/gitblog/issues/44)  
@@ -37,13 +39,14 @@
 2023/07/16
 - [广东到底是大城市啊](https://github.com/jaydong2016/gitblog/issues/26)  
 2023/07/15
-- [北京多家青旅拒接岁以上顾客商家称生活习惯不同不好管理律师称不...](https://github.com/jaydong2016/gitblog/issues/25)  
-2023/07/13
 ## Chat GPT
 - [妈味 GPT](https://github.com/jaydong2016/gitblog/issues/43)  
 2023/07/23
 - [ChatGPT 国粹版，快来和 GPT 一起愉快的学习吧](https://github.com/jaydong2016/gitblog/issues/42)  
 2023/07/22
+## 有点意思
+- [罗大佑万万没想到，香港送走皇后二十年迎来了皇帝](https://github.com/jaydong2016/gitblog/issues/47)  
+2023/07/26
 ## 社会热点
 - [7.23 齐齐哈尔市第34中学体育馆](https://github.com/jaydong2016/gitblog/issues/44)  
 2023/07/25
