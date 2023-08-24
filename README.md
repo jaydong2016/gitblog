@@ -19,8 +19,8 @@
 - [【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网](https://github.com/jaydong2016/gitblog/issues/12)  
 2023/07/03
 # 最近更新
-- [逐渐认同的道理](https://github.com/jaydong2016/gitblog/issues/48)  
-2023/07/31
+- [长期更新公布：ChatGPT 最新国内可用免费共享公益站](https://github.com/jaydong2016/gitblog/issues/49)  
+2023/08/24
 - [罗大佑万万没想到，香港送走皇后二十年迎来了皇帝](https://github.com/jaydong2016/gitblog/issues/47)  
 2023/07/26
 - [【转载】丢了一把伞](https://github.com/jaydong2016/gitblog/issues/46)  
@@ -40,6 +40,8 @@
 - [为什么这么多男人喜欢钓鱼且乐此不疲？](https://github.com/jaydong2016/gitblog/issues/37)  
 2023/07/16
 ## Chat GPT
+- [长期更新公布：ChatGPT 最新国内可用免费共享公益站](https://github.com/jaydong2016/gitblog/issues/49)  
+2023/08/24
 - [妈味 GPT](https://github.com/jaydong2016/gitblog/issues/43)  
 2023/07/23
 - [ChatGPT 国粹版，快来和 GPT 一起愉快的学习吧](https://github.com/jaydong2016/gitblog/issues/42)  
