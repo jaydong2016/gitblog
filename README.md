@@ -19,6 +19,8 @@
 - [【教程】通过 Cloudflare Workers 部署 V2ray 代理，实现科学上网](https://github.com/jaydong2016/gitblog/issues/12)  
 2023/07/03
 # 最近更新
+- [長期面向全球廣東話 粵語 YouTuber 製作書面語中文字幕](https://github.com/jaydong2016/gitblog/issues/50)  
+2023/08/25
 - [长期更新公布：ChatGPT 最新国内可用免费共享公益站](https://github.com/jaydong2016/gitblog/issues/49)  
 2023/08/24
 - [罗大佑万万没想到，香港送走皇后二十年迎来了皇帝](https://github.com/jaydong2016/gitblog/issues/47)  
@@ -37,9 +39,9 @@
 2023/07/17
 - [什么才叫法治社会？](https://github.com/jaydong2016/gitblog/issues/38)  
 2023/07/17
-- [为什么这么多男人喜欢钓鱼且乐此不疲？](https://github.com/jaydong2016/gitblog/issues/37)  
-2023/07/16
 ## Chat GPT
+- [長期面向全球廣東話 粵語 YouTuber 製作書面語中文字幕](https://github.com/jaydong2016/gitblog/issues/50)  
+2023/08/25
 - [长期更新公布：ChatGPT 最新国内可用免费共享公益站](https://github.com/jaydong2016/gitblog/issues/49)  
 2023/08/24
 - [妈味 GPT](https://github.com/jaydong2016/gitblog/issues/43)  
@@ -47,6 +49,8 @@
 - [ChatGPT 国粹版，快来和 GPT 一起愉快的学习吧](https://github.com/jaydong2016/gitblog/issues/42)  
 2023/07/22
 ## 有点意思
+- [長期面向全球廣東話 粵語 YouTuber 製作書面語中文字幕](https://github.com/jaydong2016/gitblog/issues/50)  
+2023/08/25
 - [罗大佑万万没想到，香港送走皇后二十年迎来了皇帝](https://github.com/jaydong2016/gitblog/issues/47)  
 2023/07/26
 ## 社会热点
